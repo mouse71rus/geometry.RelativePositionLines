@@ -11,7 +11,7 @@ namespace L1_geo
         {
             Point p1, p2, p3, p4;
             double x, y;
-            //com
+
             Console.WriteLine("p1: (x1, y1)");
             Console.Write("x1: ");
             x = Convert.ToDouble(Console.ReadLine());
@@ -54,7 +54,15 @@ namespace L1_geo
             double res = v_p1p2.PseudoscalarMultiply(v_p3p4);
             if (res == 0)
             {
-                Console.WriteLine("Прямые параллельны.");
+                Vector v_p1p3 = new Vector(p1, p3);
+                if (v_p1p2.PseudoscalarMultiply(v_p1p3) == 0)
+                {
+                    Console.WriteLine("Прямые совпадают.");
+                }
+                else
+                {
+                    Console.WriteLine("Прямые параллельны.");
+                }
             }
             else
             {
